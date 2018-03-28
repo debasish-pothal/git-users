@@ -4,7 +4,9 @@ import Card from './Card';
 
 const CardList = (props) => {
     return(
-        <Card />
+        <div className="row">
+            { props.cards.map(card => <div className="col-md-3"><Card {...card} /></div>) }
+        </div>
     );
 }
 

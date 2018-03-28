@@ -9,32 +9,27 @@ class App extends Component {
     super(props);
 
     this.state = {
-        counter: 0
+      cards: [
+        {
+          userImage: 'https://avatars3.githubusercontent.com/u/8099723?v=4',
+          userName: 'Debasish Pothal',
+          userAddress: 'Bangalore, India'
+        },
+        {
+          userImage: 'https://avatars3.githubusercontent.com/u/6412038?v=4',
+          userName: 'React Community',
+          userAddress: 'Everywhere'
+        }
+      ]
     }
-  }
-
-  handleClick = (incrementBy) => {
-      this.setState((prevState) => ({
-          counter: prevState.counter + incrementBy
-      }));
   }
 
   render() {
     return (
       <div className="container" style={{marginTop: 20}}>
-        {/* <div className="row">
-          <div className="col-md-12">
-            <div class="btn-group">
-              <Button incrementValue={1} onHandleClick={ this.handleClick } />
-              <Button incrementValue={3} onHandleClick={ this.handleClick } />
-              <Button incrementValue={5} onHandleClick={ this.handleClick } />
-            </div>
-          </div>
-          <Result counter={this.state.counter} />
-    </div> */}
         <div className="row">
           <div className="col-md-12">
-            <CardList />
+            <CardList cards={this.state.cards}/>
           </div>
         </div>
       </div>
