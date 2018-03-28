@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Button from './Button';
-import Result from './Result';
 import CardList from './CardList';
+import Form from './Form';
+
 
 class App extends Component {
   constructor(props) {
@@ -24,9 +24,24 @@ class App extends Component {
     }
   }
 
+  addNewCard = (cardInfo) => {
+    this.setState(prevState => ({
+      cards: prevState.cards.concat({
+        userImage: cardInfo.avatar_url,
+        userName: cardInfo.name,
+        userAddress: cardInfo.location
+      })
+    }));
+  }
+
   render() {
     return (
       <div className="container" style={{marginTop: 20}}>
+        <div className="row">
+          <div className="col-md-12">
+            <Form onSubmit={this.addNewCard} />
+          </div>
+        </div>
         <div className="row">
           <div className="col-md-12">
             <CardList cards={this.state.cards}/>
